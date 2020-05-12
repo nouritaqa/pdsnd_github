@@ -144,7 +144,7 @@ def user_stats(df):
         print('Most reach year of birth: ', df['Birth Year'].max())
         print('Most common year of birht: ', df['Birth Year'].mode()[0])
     except:
-        print('The dataset dones not have info about birth year')
+        print('The dataset dones not have info about birth year') # some of the dataset lack this
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
