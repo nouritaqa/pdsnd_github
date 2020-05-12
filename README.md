@@ -13,7 +13,8 @@ The project was designed to take the bikeshare user data in Chicago, New York an
 
 ### Files used
 - bikeshare.py
-- <data>.csv
+- bikeshare csv file
+
 
 
 ### Credits
