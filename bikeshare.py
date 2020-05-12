@@ -15,26 +15,27 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city = input('\nHey guys! Which city do you want to analyze? Please choose from Chicago, New York City and Washington you want to analyze: ').lower()
+
+    # get user input for city (chicago, new york city, washington).
+    print('Eexplore some US bikeshare data')
+    city = input('\nWhich city do you want to analyze? Please choose from Chicago, New York City and Washington: ').lower()
     while city not in ['chicago', 'new york city', 'washington']:
-        print('\n{} does not exist in our database. Our database covers only chicago, new your city and washington.\n'.format(city))
+        print('\n{} does not exist in the database.\n'.format(city))
         city = input('\nPlease tell me about which city (chicago, new york city, washington) you want to analyze: ').lower()
 
     # get user input for month (all, january, february, ... , june)
-    month = input('\nPlease select which month (all, january, february, ... , june) you want to analyze: ').lower()
+    month = input('\nPlease select which month (all, january, february, ... , june): ').lower()
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     while month not in months:
-        print('\n{} does not exist in our database. Our database covers (all, january, february, ... , june).\n'.format(month))
-        month = input('\nPlease select which month (all, january, february, ... , june) you want to analyze: ').lower()
+        print('\n{} does not exist in the database.\n'.format(month))
+        month = input('\nPlease select which month (all, january, february, ... , june): ').lower()
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday) you want to analyze: ').lower()
+    day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday): ').lower()
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     while day not in days:
-        print('\n{} does not exist in our database. Our database covers (all, monday, tuesday, ... sunday).\n'.format(day))
-        day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday) you want to analyze: ').lower()
+        print('\n{} does not exist in the database.\n'.format(day))
+        day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday): ').lower()
 
     print('-'*40)
     return city, month, day
@@ -43,7 +44,6 @@ def get_filters():
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
-
     Args:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
@@ -51,11 +51,12 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+
+    # read data for selected city, month and day and convert the datetype of date
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
-    print('working well')
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
+    df['day_of_week'] = df['Start Time'].dt.weekday_name #weekdya_name might not work for newer Pandas
 
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
@@ -143,7 +144,7 @@ def user_stats(df):
         print('Most reach year of birth: ', df['Birth Year'].max())
         print('Most common year of birht: ', df['Birth Year'].mode()[0])
     except:
-        print('The dataset dones not have info about birth year')
+        print('The dataset dones not have info about birth year') # some of the dataset lack this
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
