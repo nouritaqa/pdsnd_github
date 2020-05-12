@@ -15,8 +15,9 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
+
+    # get user input for city (chicago, new york city, washington).
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input('\nHey guys! Which city do you want to analyze? Please choose from Chicago, New York City and Washington you want to analyze: ').lower()
     while city not in ['chicago', 'new york city', 'washington']:
         print('\n{} does not exist in our database. Our database covers only chicago, new your city and washington.\n'.format(city))
@@ -43,7 +44,6 @@ def get_filters():
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
-
     Args:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
@@ -51,11 +51,12 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+
+    # read data for selected city, month and day and convert the datetype of date
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
-    print('working well')
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
+    df['day_of_week'] = df['Start Time'].dt.weekday_name #weekdya_name might not work for newer Pandas
 
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
