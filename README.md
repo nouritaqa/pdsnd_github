@@ -9,6 +9,8 @@ The bikeshare.py file will load the bikeshare user data fro csv file and generat
 * popular station and trip
 * statistics on average and total trip
 
+The project was designed to take the bikeshare user data in Chicago, New York and Washington city. Thus, it should be rewritten if it is to serve different city.
+
 ### Files used
 - bikeshare.py
 - <data>.csv
