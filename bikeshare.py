@@ -17,25 +17,25 @@ def get_filters():
     """
 
     # get user input for city (chicago, new york city, washington).
-    print('Hello! Let\'s explore some US bikeshare data!')
-    city = input('\nHey guys! Which city do you want to analyze? Please choose from Chicago, New York City and Washington you want to analyze: ').lower()
+    print('Eexplore some US bikeshare data')
+    city = input('\nWhich city do you want to analyze? Please choose from Chicago, New York City and Washington: ').lower()
     while city not in ['chicago', 'new york city', 'washington']:
-        print('\n{} does not exist in our database. Our database covers only chicago, new your city and washington.\n'.format(city))
+        print('\n{} does not exist in the database.\n'.format(city))
         city = input('\nPlease tell me about which city (chicago, new york city, washington) you want to analyze: ').lower()
 
     # get user input for month (all, january, february, ... , june)
-    month = input('\nPlease select which month (all, january, february, ... , june) you want to analyze: ').lower()
+    month = input('\nPlease select which month (all, january, february, ... , june): ').lower()
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     while month not in months:
-        print('\n{} does not exist in our database. Our database covers (all, january, february, ... , june).\n'.format(month))
-        month = input('\nPlease select which month (all, january, february, ... , june) you want to analyze: ').lower()
+        print('\n{} does not exist in the database.\n'.format(month))
+        month = input('\nPlease select which month (all, january, february, ... , june): ').lower()
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday) you want to analyze: ').lower()
+    day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday): ').lower()
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     while day not in days:
-        print('\n{} does not exist in our database. Our database covers (all, monday, tuesday, ... sunday).\n'.format(day))
-        day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday) you want to analyze: ').lower()
+        print('\n{} does not exist in the database.\n'.format(day))
+        day = input('\nPlease select which day of week (all, monday, tuesday, ... sunday): ').lower()
 
     print('-'*40)
     return city, month, day
