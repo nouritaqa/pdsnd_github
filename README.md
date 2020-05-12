@@ -1,15 +1,18 @@
 ### Date created
-Include the date you created this project and README file.
+Last updated: April 16, 2020
 
-### Project Title
-Replace the Project Title
+### Project: Analysis of Bikeshare in US
 
 ### Description
-Describe what your project is about and what it does
+The bikeshare.py file will load the bikeshare user data fro csv file and generate the following analysis for the requested city:
+* frequent time of travel
+* popular station and trip
+* statistics on average and total trip
 
 ### Files used
-Include the files used
+- bikeshare.py
+- <data>.csv
+
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Guided by Udacity course
